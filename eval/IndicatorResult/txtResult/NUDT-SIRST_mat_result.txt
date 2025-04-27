@@ -1,0 +1,5 @@
+Running data: NUDT-SIRST
+AUC: 0.993118
+Pd: 0.984127, Fa: 0.00000255
+mIoU: 0.941671, Prec: 0.978784, Recall: 0.961293, fscore: 0.969959
+

@@ -1,0 +1,5 @@
+Running data: IRSTD-1K
+AUC: 0.963891
+Pd: 0.920962, Fa: 0.00001792
+mIoU: 0.641444, Prec: 0.802038, Recall: 0.762102, fscore: 0.781560
+

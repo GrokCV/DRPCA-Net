@@ -1,0 +1,5 @@
+Running data: SIRSTv1
+AUC: 0.999973
+Pd: 0.990826, Fa: 0.00000373
+mIoU: 0.755260, Prec: 0.875579, Recall: 0.846062, fscore: 0.860567
+

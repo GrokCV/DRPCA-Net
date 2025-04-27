@@ -1,0 +1,5 @@
+Running data: SIRST-aug
+AUC: 0.993525
+Pd: 0.986245, Fa: 0.00003069
+mIoU: 0.765097, Prec: 0.844381, Recall: 0.890690, fscore: 0.866918
+
