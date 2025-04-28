@@ -39,6 +39,10 @@ Despite the progress of deep learning methods, many end-to-end models sacrifice 
 
 ---
 
+## 🏗 Architecture
+
+![Model Architecture](picture/DRPCA-Net.png)
+
 ## 📦 Installation
 
 ### Step 1. Clone the repository
