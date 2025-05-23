@@ -110,17 +110,20 @@ Please make sure that the path of your data set is consistent with the `data_roo
 
 ## 🏋️‍♂️ Training
 
-Run`run_0.py` to perform network training:
+Run`run_configs.py` to perform network training:
 ```bash
 $ python run_configs.py
 ```
+In the `run_configs.py` file, by setting parameters such as data_irstd1k, data_sirstaug, data_nudt, and SirstDataset, you can respectively run the corresponding datasets for training.
 
 ## 🔍 Testing
 
-Run `t_models.py` to generate file of the format .mat and .png:
+Run `inference.py` to generate file of the format .mat and .png:
 ```bash
 $ python inference.py
 ```
+In the inference.py script, you can perform inference on different datasets by specifying the dataset_name parameter with one of the following options: NUDT-SIRST, IRSTD-1k, sirst_aug, or SIRSTv1. Each value corresponds to a specific dataset configuration.
+
 Result files (.png and .mat) will be saved to:
 ```
 ├──./results/
@@ -138,6 +141,7 @@ Run `cal_from_mask.py` for direct evaluation:
 ```bash
 $ python cal_from_mask.py
 ```
+In the cal_from_mask.py file, you can calculate metrics such as mIoU, F1, Pd, and Fa for the inference results of corresponding datasets by setting the data_list parameter to one of the following values: NUDT-SIRST, IRSTD-1k, sirst_aug, or SIRSTv1.
 ## 🏆 Model Zoo and Benchmark
 
 
@@ -183,11 +187,11 @@ The `checkpoints` folder contains the weights for four datasets.
 ## 📄 Citation
 
 ```bibtex
-@article{drpcanet2024,
+@article{drpcanet2025,
   title={DRPCA-Net: Make Robust PCA Great Again for Infrared Small Target Detection},
   author={Zihao Xiong, Fei Zhou, Fengyi Wu, Shuai Yuan, Maixia Fu, Zhenming Peng, Jian Yang, Yimian Dai},
   journal={ArXiv preprint},
-  year={2024}
+  year={2025}
 }
 ```
 
