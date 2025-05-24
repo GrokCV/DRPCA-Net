@@ -21,18 +21,18 @@ class Dataset_mat(Data.Dataset):
 
         self.base_size = base_size
         self.dataset = dataset
-        if (dataset == 'NUDT-SIRST'):
+        if dataset == 'NUDT-SIRST':
             self.mat_dir = './result/NUDT-SIRST/mat1'
-            self.mask_dir = r'E:\CVImages\datasets\datasets\NUDT-SIRST\test\masks'
-        elif (dataset == 'IRSTD-1K'):
-            self.mat_dir = r'E:\CCCCC\DRPCANet\result\IRSTD-1k\mat1'
-            self.mask_dir = r'E:\CVImages\datasets\datasets\IRSTD-1k\test\masks'
-        elif (dataset == 'SIRST-aug'):
-            self.mat_dir = r'E:\CCCCC\DRPCANet\result\sirst_aug\mat1'
-            self.mask_dir = r'E:\CVImages\datasets\datasets\sirst_aug\test\masks'
-        elif (dataset == 'SIRSTv1'):
-            self.mat_dir = r'E:\CCCCC\DRPCANet - 副本\result\SIRSTv1\mat1'
-            self.mask_dir = 'E:\datasets\SIRSTdevkit-master\SIRST\BinaryMask'
+            self.mask_dir = './datasets/NUDT-SIRST/test/masks'
+        elif dataset == 'IRSTD-1K':
+            self.mat_dir = './result/IRSTD-1k/mat1'
+            self.mask_dir = './datasets/IRSTD-1k/test/masks'
+        elif dataset == 'SIRST-aug':
+            self.mat_dir = './result/sirst_aug/mat1'
+            self.mask_dir = './datasets/sirst_aug/test/masks'
+        elif dataset == 'SIRSTv1':
+            self.mat_dir = './result/SIRSTv1/mat1'
+            self.mask_dir = './datasets/SIRSTdevkit-master/SIRST/BinaryMask'
         else:
             raise NotImplementedError
 
