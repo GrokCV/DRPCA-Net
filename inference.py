@@ -13,8 +13,19 @@ dataset_name = 'NUDT-SIRST' # NUDT-SIRST IRSTD-1k sirst_aug SIRSTv1
 
 net = get_model('Drpcanet')
 
-file_path =  fr'E:\CVImages\datasets\datasets\{dataset_name}\test\images'
-pkl_file = r'E:\CCCCC\DRPCANet - 副本\checkpionts\NUDTIRSTD_mIoU_94.16.pkl'
+file_path =  './datasets/{dataset_name}'
+
+if dataset_name == 'NUDT-SIRST':
+    pkl_file = './checkpoints/NUDTIRSTD_mIoU_94.16.pkl'
+elif dataset_name == 'IRSTD-1k':
+    pkl_file = './checkpoints/IRSTD1K_mIoU_64.14.pkl'
+elif dataset_name =='sirst_aug':
+    pkl_file = './checkpoints/SIRSTAUG_mIoU_76.50.pkl'
+elif dataset_name == 'SIRSTv1':
+    pkl_file = './checkpoints/SIRSTv1_mIoU_75.52.pkl'
+else:
+    raise ValueError(f"Unsupported dataset_name: {dataset_name}")
+
 checkpoint = torch.load(pkl_file, map_location=torch.device('cuda:0'))
 net.load_state_dict(checkpoint)
 net.eval()
