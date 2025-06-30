@@ -13,7 +13,7 @@ dataset_name = 'NUDT-SIRST' # NUDT-SIRST IRSTD-1k sirst_aug SIRSTv1
 
 net = get_model('Drpcanet')
 
-file_path =  './datasets/{dataset_name}'
+file_path =  fr'./datasets/{dataset_name}'
 
 if dataset_name == 'NUDT-SIRST':
     pkl_file = './checkpoints/NUDTIRSTD_mIoU_94.16.pkl'
