@@ -187,12 +187,16 @@ The `checkpoints` folder contains the weights for four datasets.
 ## 📄 Citation
 
 ```bibtex
-@article{drpcanet2025,
-  title={DRPCA-Net: Make Robust PCA Great Again for Infrared Small Target Detection},
-  author={Zihao Xiong, Fei Zhou, Fengyi Wu, Shuai Yuan, Maixia Fu, Zhenming Peng, Jian Yang, Yimian Dai},
-  journal={ArXiv preprint},
-  year={2025}
-}
+@ARTICLE{TGRS2025DRPCANet,
+  author={Xiong, Zihao and Zhou, Fei and Wu, Fengyi and Yuan, Shuai and Fu, Maixia and Peng, Zhenming and Yang, Jian and Dai, Yimian},
+  journal={IEEE Transactions on Geoscience and Remote Sensing}, 
+  title={DRPCA-Net: Make Robust PCA Great Again for Infrared Small Target Detection}, 
+  year={2025},
+  volume={63},
+  number={},
+  pages={1-16},
+  doi={10.1109/TGRS.2025.3588392}}
+
 ```
 
 🔥 Let's Make Robust PCA Great Again!
