@@ -164,6 +164,67 @@ class NUDTDataset(Data.Dataset):
         return len(self.names)
     
 
+class SirstDataset(Data.Dataset):
+    def __init__(self, base_dir=r'/opt/data/private/xzh/RPCANet-main/datasets/SIRSTdevkit',
+                 mode='train', base_size=256):
+        if mode == 'train':
+            txtfile = 'trainval_v1.txt'
+        elif mode == 'val':
+            txtfile = 'test_v1.txt'
+
+        self.list_dir = osp.join(base_dir, 'Splits', txtfile)
+        self.imgs_dir = osp.join(base_dir, 'PNGImages')
+        self.label_dir = osp.join(base_dir, 'SIRST/BinaryMask')
+
+        self.names = []
+        with open(self.list_dir, 'r') as f:
+            self.names += [line.strip() for line in f.readlines()]
+
+        self.mode = mode
+        self.base_size = base_size
+        self.tranform = augumentation()
+        # self.transform = transforms.Compose([
+        #     transforms.ToTensor(),
+        #     # transforms.Normalize([.485, .456, .406], [.229, .224, .225]),  # Default mean and std
+        #     transforms.Normalize([.485, .456, .406], [.229, .224, .225]),
+        # ])
+
+    def __getitem__(self, i):
+        name = self.names[i]
+        img_path = osp.join(self.imgs_dir, name+'.png')
+        label_path = osp.join(self.label_dir, name+'_pixels0.png')
+
+        img, mask = cv2.imread(img_path, 0), cv2.imread(label_path, 0)
+
+
+        if self.mode == 'train':
+            img, mask = self.tranform(img, mask)
+            img = cv2.resize(img, [self.base_size, self.base_size], interpolation=cv2.INTER_LINEAR)
+            mask = cv2.resize(mask, [self.base_size, self.base_size], interpolation=cv2.INTER_NEAREST)
+            img = img.reshape(1, self.base_size, self.base_size) / 255.
+            mask = mask.reshape(1, self.base_size, self.base_size) / np.max(mask)
+            img = torch.from_numpy(img).type(torch.FloatTensor)
+            mask = torch.from_numpy(mask).type(torch.FloatTensor)
+            return img, mask
+
+        elif self.mode == 'val':
+            img = cv2.resize(img, [self.base_size, self.base_size], interpolation=cv2.INTER_LINEAR)
+            mask = cv2.resize(mask, [self.base_size, self.base_size], interpolation=cv2.INTER_NEAREST)
+            img = img.reshape(1, self.base_size, self.base_size) / 255.
+            mask = mask.reshape(1, self.base_size, self.base_size) / np.max(mask)
+            _, h, w = img.shape
+            # print(img.shape)
+            img = PadImg(img)
+            mask = PadImg(mask)
+            img = torch.from_numpy(img).type(torch.FloatTensor)
+            mask = torch.from_numpy(mask).type(torch.FloatTensor)
+            return img, mask
+
+
+
+    def __len__(self):
+        return len(self.names)
+
 class augumentation(object):
     def __call__(self, input, target):
         if random.random()<0.5:
