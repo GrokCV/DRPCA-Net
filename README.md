@@ -79,7 +79,7 @@ For the **SIRSTV1** dataset, we still maintain the structure provided by the off
 <!-- The NoisySIRST dataset can be accessible via:
 https://drive.google.com/drive/folders/1RGpVHccGb8B4_spX_RZPEMW9pyeXOIaC?usp=sharing -->
 
-Please first download these datasets and place the 4 datasets to the folder `./datasets/`
+Please first download these datasets and place NUDT-SIRST, IRSTD-1K, and sirst_aug in the folder `./datasets/`; for the SIRSTV1 dataset, please maintain its official directory structure.
 
 ### File Structure
 ```
@@ -105,7 +105,7 @@ Please first download these datasets and place the 4 datasets to the folder `./d
 │    │    │    │    ├── ...
 ```
 
-Please make sure that the path of your data set is consistent with the `data_root` in `configs/_base_/datasets/dataset_name.py`
+Please make sure that the path of your data set is consistent with the `data_root`.
 
 
 ## 🏋️‍♂️ Training
